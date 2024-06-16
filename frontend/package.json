@@ -12,6 +12,7 @@
   "dependencies": {
     "@azure/msal-browser": "^2.37.1",
     "@floating-ui/react-dom": "^2.0.1",
+    "@fontsource/roboto": "^5.0.13",
     "@giraugh/tools": "^1.6.0",
     "@js-temporal/polyfill": "^0.4.4",
     "@microsoft/microsoft-graph-client": "^3.0.5",

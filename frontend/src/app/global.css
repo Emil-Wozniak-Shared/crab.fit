@@ -143,3 +143,6 @@ input[type=checkbox]:focus-visible, input[type=radio]:focus-visible {
   outline: var(--focus-ring);
   outline-offset: 2px;
 }
+body {
+  font-family: "Roboto", sans-serif;
+}
