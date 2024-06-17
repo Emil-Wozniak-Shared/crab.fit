@@ -36,9 +36,8 @@ export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
     }
 }
 
-const getHref = (t: TFunction<string, string>, event: Event): string => {
-    return `mailto:?subject=${encodeURIComponent(t('event:nav.email_subject', {event_name: event.name}))}&body=${encodeURIComponent(`${t('event:nav.email_body')} https://${APP_URL}/${event.id}`)}`;
-}
+const getHref = (t: TFunction<string, string>, event: Event): string =>
+    `mailto:?subject=${encodeURIComponent(t('event:nav.email_subject', {event_name: event.name}))}&body=${encodeURIComponent(`${t('event:nav.email_body')} https://${APP_URL}/${event.id}`)}`;
 
 const Page = async ({params}: PageProps) => {
     const event = await getEvent(params.id).catch(() => undefined)
@@ -47,6 +46,8 @@ const Page = async ({params}: PageProps) => {
     const {t, i18n} = await useTranslation(['common', 'event'])
 
     return <>
+        <EventAvailabilities event={event}/>
+
         <Suspense
             fallback={<Content>
                 <h1 className={styles.name}><span className={styles.bone}/></h1>
@@ -74,8 +75,6 @@ const Page = async ({params}: PageProps) => {
                 </p>
             </Content>
         </Suspense>
-
-        <EventAvailabilities event={event}/>
     </>
 }
 
